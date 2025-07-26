@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - Loja Da Vírgula</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para a página de detalhes do produto */
+        .product-detail-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product-detail-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            height: 400px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-detail-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .product-detail-category {
+            color: #757575;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-detail-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .product-detail-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .product-detail-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .product-detail-quantity button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .product-detail-quantity span {
+            padding: 0 15px;
+            font-weight: bold;
+        }
+
+        .product-detail-add-to-cart {
+            background-color: #111;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-detail-add-to-cart:hover {
+            background-color: #333;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin: 20px auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .back-to-home a {
+            background-color: #111;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                margin: 20px;
+                padding: 20px;
+            }
+            .product-detail-image {
+                min-width: unset;
+                max-width: 100%;
+                height: 300px;
+            }
+            .product-detail-name {
+                font-size: 1.8rem;
+            }
+            .product-detail-price {
+                font-size: 1.6rem;
+            }
+            .product-detail-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .product-detail-add-to-cart {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+         <div class="sidebar">
+            
+            <div class="logo">
+                <svg viewBox="0 0 100 100" fill="white">
+                    <path d="M40,20 C40,20 80,40 80,80 L100,40 L20,0 Z" />
+                </svg>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item" onclick="window.location.href='home.html'">Início</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Tênis</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Homem</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Mulher</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Crianças</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Acessórios</li>
+                <li class="nav-item" onclick="window.location.href='home.html#products-section'">Vestuário</li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn">
+                            <span>🔍</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="cart-container" onclick="window.location.href='carrinho.html'" style="cursor: pointer;">
+                   <div class="cart-icon">🛒</div>
+                   <div class="cart-count" id="cart-count">0</div>
+               </div>
+            </div>
+
+            <div class="product-detail-container">
+                <div class="product-detail-image">
+                    <!-- Imagem do produto será carregada aqui -->
+                    <img id="detail-product-image" src="" alt="Imagem do Produto">
+                </div>
+                <div class="product-detail-info">
+                    <div class="product-detail-category" id="detail-product-category"></div>
+                    <h1 class="product-detail-name" id="detail-product-name"></h1>
+                    <div class="product-detail-price" id="detail-product-price"></div>
+                    <p class="product-detail-description" id="detail-product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <div class="product-detail-actions">
+                        <div class="product-detail-quantity">
+                            <button id="decrease-quantity">-</button>
+                            <span id="quantity-display">1</span>
+                            <button id="increase-quantity">+</button>
+                        </div>
+                        <button class="product-detail-add-to-cart" id="add-to-cart-detail">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            <div class="back-to-home">
+                <a href="home.html">← Voltar para a loja</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Loja Da Vírgula. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulação de dados de produtos 
+        const allProducts = [
+            { id: "1", name: "Air max TN Hyperblue", category: "Tênis", price: 1299.90, image: "imagens/produto1.jpeg", description: "Tênis de alta performance com tecnologia Air Max para máximo conforto e estilo. Ideal para o dia a dia e atividades esportivas." },
+            { id: "2", name: "Camiseta Nike Dri-FIT", category: "Homem", price: 199.90, image: "imagens/produto2.webp", description: "Camiseta leve e respirável com tecnologia Dri-FIT que afasta o suor da pele, mantendo você seco e confortável durante o treino." },
+            { id: "3", name: "Shorts de Treino", category: "Vestuário", price: 279.90, image: "imagens/produto3.jpeg", description: "Shorts versátil para treinos intensos, com tecido elástico e cós ajustável para liberdade de movimento." },
+            { id: "4", name: "Mochila Esportiva Elite", category: "Acessórios", price: 299.90, image: "imagens/produto4.webp", description: "Mochila espaçosa e durável, perfeita para carregar seus equipamentos esportivos e itens pessoais com segurança." },
+            { id: "5", name: "Jaqueta Corta-Vento", category: "Mulher", price: 499.90, image: "imagens/produto5.webp", description: "Jaqueta leve e resistente ao vento, ideal para atividades ao ar livre em dias de clima instável. Design moderno e confortável." },
+            { id: "6", name: "Tênis Adidas NMD", category: "Tênis", price: 749.90, image: "imagens/produto6.webp", description: "Tênis urbano com design inovador e amortecimento responsivo, proporcionando conforto e estilo para o seu dia a dia." },
+            { id: "7", name: "Boné adidas running", category: "Acessórios", price: 149.90, image: "imagens/produto7.webp", description: "Boné leve e respirável, ideal para corridas e atividades físicas, protegendo você do sol com estilo." },
+            { id: "8", name: "Chuteira de Futebol", category: "Crianças", price: 599.90, image: "imagens/produto8.webp", description: "Chuteira desenvolvida para jovens atletas, oferecendo aderência e controle para dominar o campo." },
+            { id: "9", name: "Moletom Cb brasil", category: "Homem", price: 499.90, image: "imagens/produto9.webp", description: "Moletom confortável e estiloso, perfeito para o dia a dia ou para relaxar após o treino. Mostre seu amor pelo Brasil!" },
+            { id: "10", name: "Chinelo Adillete", category: "Mulher", price: 699.90, image: "imagens/produto10.avif", description: "Chinelo clássico e confortável, ideal para o pós-treino ou para momentos de lazer. Design icônico e durável." }
+        ];
+
+        let currentProduct = null;
+        let currentQuantity = 1;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductDetails();
+            updateCartCount(); // Atualiza o contador do carrinho no header
+
+            // Event listeners para os botões de quantidade
+            document.getElementById('decrease-quantity').addEventListener('click', function() {
+                if (currentQuantity > 1) {
+                    currentQuantity--;
+                    document.getElementById('quantity-display').textContent = currentQuantity;
+                }
+            });
+
+            document.getElementById('increase-quantity').addEventListener('click', function() {
+                currentQuantity++;
+                document.getElementById('quantity-display').textContent = currentQuantity;
+            });
+
+            // Event listener para o botão "Adicionar ao Carrinho" da página de detalhes
+            document.getElementById('add-to-cart-detail').addEventListener('click', function() {
+                if (currentProduct) {
+                    addProductToCart(currentProduct, currentQuantity);
+                    alert(`${currentQuantity}x ${currentProduct.name} adicionado(s) ao carrinho!`);
+                    updateCartCount(); // Atualiza o contador após adicionar
+                }
+            });
+
+            // Funcionalidade de pesquisa (copiada do script.js para manter consistência)
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    window.location.href = `home.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            });
+
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    const searchTerm = searchInput.value.trim();
+                    if (searchTerm) {
+                        window.location.href = `home.html?search=${encodeURIComponent(searchTerm)}`;
+                    }
+                }
+            });
+        });
+
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            if (productId) {
+                currentProduct = allProducts.find(p => p.id === productId);
+                if (currentProduct) {
+                    document.getElementById('detail-product-image').src = currentProduct.image;
+                    document.getElementById('detail-product-image').alt = currentProduct.name;
+                    document.getElementById('detail-product-category').textContent = currentProduct.category;
+                    document.getElementById('detail-product-name').textContent = currentProduct.name;
+                    document.getElementById('detail-product-price').textContent = `R$ ${currentProduct.price.toFixed(2).replace('.', ',')}`;
+                    document.getElementById('detail-product-description').textContent = currentProduct.description;
+                } else {
+                    // Produto não encontrado, redirecionar ou mostrar mensagem
+                    alert('Produto não encontrado!');
+                    window.location.href = 'home.html';
+                }
+            } else {
+                // Nenhum ID de produto na URL, redirecionar ou mostrar mensagem
+                alert('Nenhum produto especificado!');
+                window.location.href = 'home.html';
+            }
+        }
+
+        // Função para adicionar produto ao carrinho (adaptada para a página de detalhes)
+        function addProductToCart(product, quantityToAdd) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            const existingProduct = cart.find(item => item.id === product.id);
+            if (existingProduct) {
+                existingProduct.quantity += quantityToAdd;
+            } else {
+              // Se não estiver, adiciona um NOVO objeto garantindo que "image" seja o nome do produto
+        const newCartItem = {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            category: product.category,
+            quantity: quantityToAdd,
+            image: product.name 
+        };
+        cart.push(newCartItem); 
+    }
+    
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Atualizar contador do carrinho 
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+            }
+        }
+    </script>
+</body>
+</html>

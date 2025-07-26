@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Da Vírgula</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <svg viewBox="0 0 100 100" fill="white">
+                    <path d="M40,20 C40,20 80,40 80,80 L100,40 L20,0 Z" />
+                </svg>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-category="Início">Início</li>
+                <li class="nav-item" data-category="Tênis">Tênis</li>
+                <li class="nav-item" data-category="Homem">Homem</li>
+                <li class="nav-item" data-category="Mulher">Mulher</li>
+                <li class="nav-item" data-category="Crianças">Crianças</li>
+                <li class="nav-item" data-category="Acessórios">Acessórios</li>
+                <li class="nav-item" data-category="Vestuário">Vestuário</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn">
+                            <span>🔍</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="cart-container" onclick="openCart()" style="cursor: pointer;">
+                   <div class="cart-icon">🛒</div>
+                   <div class="cart-count" id="cart-count">0</div>
+               </div>
+            </div>
+
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h1 class="welcome-title">Loja Da Vírgula</h1>
+                <p class="welcome-subtitle">Sua loja de artigos esportivos com os melhores produtos</p>
+                <a href="#products-section" class="cta-button">Ver Produtos</a>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Produtos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Marcas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Clientes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">Avaliação</div>
+                </div>
+            </div>
+
+            <!-- Quick Categories -->
+            <div class="quick-categories">
+                <h2 class="section-title">Categorias</h2>
+                <div class="categories-grid">
+                    <div class="category-item" data-category="Tênis">
+                        <div class="category-icon">👟</div>
+                        <div class="category-name">Tênis</div>
+                    </div>
+                    <div class="category-item" data-category="Homem">
+                        <div class="category-icon">👔</div>
+                        <div class="category-name">Homem</div>
+                    </div>
+                    <div class="category-item" data-category="Mulher">
+                        <div class="category-icon">👗</div>
+                        <div class="category-name">Mulher</div>
+                    </div>
+                    <div class="category-item" data-category="Crianças">
+                        <div class="category-icon">👶</div>
+                        <div class="category-name">Crianças</div>
+                    </div>
+                    <div class="category-item" data-category="Acessórios">
+                        <div class="category-icon">🎒</div>
+                        <div class="category-name">Acessórios</div>
+                    </div>
+                    <div class="category-item" data-category="Vestuário">
+                        <div class="category-icon">👕</div>
+                        <div class="category-name">Vestuário</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-section">
+                <h2 class="section-title">Por que escolher a Loja Da Vírgula?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚚</div>
+                        <div class="feature-title">Entrega Rápida</div>
+                        <div class="feature-description">Receba em até 3 dias úteis</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"> 💳 ✅</div>
+                        <div class="feature-title">Pagamento Seguro</div>
+                        <div class="feature-description">Cartão, PIX ou boleto</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-title">Troca Garantida</div>
+                        <div class="feature-description">30 dias para trocas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section (from pagina.html) -->
+            <div id="products-section">
+                <h2 class="section-title">Mais vendidos</h2>
+                <div class="products-grid">
+
+                    <!-- primeiro produto -->
+                    <div class="product-card" data-id="1">
+                        <div class="product-image">
+                            <img src="imagens/produto1.jpeg" alt="Tênis Air max TN Hyperblue">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Tênis</div>
+                            <div class="product-name">Air max TN Hyperblue</div>
+                            <div class="product-price">R$ 1299,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <!--segundo produto -->
+                    <div class="product-card" data-id="2">
+                        <div class="product-image">
+                            <img src="imagens/produto2.webp" alt="Camiseta Nike Dri-FIT">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Homem</div>
+                            <div class="product-name">Camiseta Nike Dri-FIT </div>
+                            <div class="product-price">R$ 199,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <!-- terceiro produto -->
+                    <div class="product-card" data-id="3">
+                        <div class="product-image">
+                            <img src="imagens/produto3.jpeg" alt="Shorts de Treino">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Vestuário</div>
+                            <div class="product-name">Shorts de Treino </div>
+                            <div class="product-price">R$ 279,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <!-- quarto produto -->
+                    <div class="product-card" data-id="4">
+                        <div class="product-image">
+                            <img src="imagens/produto4.webp" alt="Mochila Esportiva Elite">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Acessórios</div>
+                            <div class="product-name">Mochila Esportiva Elite</div>
+                            <div class="product-price">R$ 299,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <!-- quinto produto -->
+                    <div class="product-card" data-id="5">
+                        <div class="product-image">
+                            <img src="imagens/produto5.webp" alt="Jaqueta Corta-Vento">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Mulher</div>
+                            <div class="product-name">Jaqueta Corta-Vento </div>
+                            <div class="product-price">R$ 499,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <!-- sexto produto -->
+                    <div class="product-card" data-id="6">
+                        <div class="product-image">
+                            <img src="imagens/produto6.webp" alt="Tênis Adidas NMD">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Tênis</div>
+                            <div class="product-name">Tênis Adidas NMD</div>
+                            <div class="product-price">R$ 749,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <!-- sétimo produto -->
+                    <div class="product-card" data-id="7">
+                        <div class="product-image">
+                            <img src="imagens/produto7.webp" alt="Boné adidas running">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Acessórios</div>
+                            <div class="product-name">Boné adidas running</div>
+                            <div class="product-price">R$ 149,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <!-- oitavo produto -->
+                    <div class="product-card" data-id="8">
+                        <div class="product-image">
+                            <img src="imagens/produto8.webp" alt="Chuteira de Futebol">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Crianças</div>
+                            <div class="product-name">Chuteira de Futebol </div>
+                            <div class="product-price">R$ 599,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <!-- nono produto -->
+                    <div class="product-card" data-id="9">
+                        <div class="product-image">
+                            <img src="imagens/produto9.webp" alt="Moletom Cb brasil">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Homem</div>
+                            <div class="product-name">Moletom Cb brasil</div>
+                            <div class="product-price">R$ 499,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <!-- décimo produto -->
+                    <div class="product-card" data-id="10">
+                        <div class="product-image">
+                            <img src="imagens/produto10.avif" alt="Chinelo Adillete">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Mulher</div>
+                            <div class="product-name">Chinelo Adillete </div>
+                            <div class="product-price">R$ 699,90</div>
+                            <button class="add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Loja Da Vírgula. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
